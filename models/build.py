@@ -11,7 +11,8 @@ def build_model(cfg):
                           in_channels=len(cfg.DATASET.USE_MODES),
                           out_channels=3,
                           init_channels=cfg.MODEL.INIT_CHANNELS,
-                          p=cfg.MODEL.DROPOUT)
+                          p=cfg.MODEL.DROPOUT
+                          )
     else:
         model = UNet3D(cfg.DATASET.INPUT_SHAPE,
                        in_channels=len(cfg.DATASET.USE_MODES),

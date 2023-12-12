@@ -58,7 +58,7 @@ def train_val(model, loaders, optimizer, scheduler, losses, metrics=None):
             logger = logging.getLogger(phase)
             total = len(loader)
             for batch_id, (batch_x, batch_y) in enumerate(loader):
-                batch_x, batch_y = batch_x.cuda(async=True), batch_y.cuda(async=True)
+                batch_x, batch_y = batch_x.cuda(), batch_y.cuda()
                 with torch.set_grad_enabled(phase == 'train'):
                     output, vout, mu, logvar = model(batch_x)
                     loss_dict = losses['dice_vae'](cfg, output, batch_x, batch_y, vout, mu, logvar)

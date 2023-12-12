@@ -28,7 +28,7 @@ class Brats2018(Dataset):
         for mode in modes:
             patient_id = os.path.split(patient_dir)[-1]
             volume_path = os.path.join(patient_dir, patient_id + "_" + mode + '.nii')
-            volume = nib.load(volume_path).get_data()
+            volume = nib.load(volume_path).get_fdata()
             if not mode == "seg":
                 volume = self.normlize(volume)  # [0, 1.0]
             volumes.append(volume)                  # [h, w, d]
@@ -152,5 +152,5 @@ if __name__ == "__main__":
         seg = (np.sum(y.numpy(), axis=0)).astype('uint8')
         volume = nib.Nifti1Image(volume, np.eye(4))
         seg = nib.Nifti1Image(seg, np.eye(4))
-        nib.save(volume, 'test'+str(i)+'_volume.nii')
-        nib.save(seg, 'test' + str(i) + '_seg.nii')
+        nib.save(volume, './testBra/test'+str(i)+'_volume.nii')
+        nib.save(seg, './testBra/test' + str(i) + '_seg.nii')

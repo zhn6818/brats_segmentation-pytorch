@@ -35,11 +35,11 @@ class VAEBranch(nn.Module):
     def __init__(self, input_shape, init_channels, out_channels, squeeze_channels=None):
         super(VAEBranch, self).__init__()
         self.input_shape = input_shape
-
-        if squeeze_channels:
-            self.squeeze_channels = squeeze_channels
-        else:
-            self.squeeze_channels = init_channels * 4
+        self.squeeze_channels = 16 * 16
+        # if squeeze_channels:
+        #     self.squeeze_channels = squeeze_channels
+        # else:
+        #     self.squeeze_channels = init_channels * 4
 
         self.hidden_conv = nn.Sequential(nn.GroupNorm(8, init_channels * 8),
                                          nn.ReLU(inplace=True),

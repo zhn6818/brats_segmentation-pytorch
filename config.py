@@ -9,11 +9,11 @@ _C = CN()
 _C.DATASET = CN()
 
 if "Win" in platform.system():
-    _C.DATASET.DATA_ROOT = 'G:/data_repos/Brats2018'
+    _C.DATASET.DATA_ROOT = '/data1/zhn/macdata/all_data/2-MICCAI_BraTS_2018/MICCAI_BraTS_2018_Data_Training'
 else:
-    _C.DATASET.DATA_ROOT = "/home/share/data_repos/Brats2018"
+    _C.DATASET.DATA_ROOT = "/data1/zhn/macdata/all_data/2-MICCAI_BraTS_2018/MICCAI_BraTS_2018_Data_Training"
 
-_C.DATASET.NUM_FOLDS = 4
+_C.DATASET.NUM_FOLDS = 5
 _C.DATASET.SELECT_FOLD = 0
 _C.DATASET.USE_MODES = ("t1", "t2", "flair", "t1ce")
 _C.DATASET.INPUT_SHAPE = (160, 192, 128)
